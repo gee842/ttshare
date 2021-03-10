@@ -15,7 +15,7 @@ def save_mp3():
     try:
         
         text = request.args.get('text', default=1, type=str)
-        if len(text>1000):
+        if len(text)>1000:
             return 'Keep it under 1000 chars pls (free tier google cloud)'
         saved_id = ''.join(random.choice('0123456789abcdef') for n in range(30))
         comment_to_mp3(text,"./quota.txt",saved_id,randomize=True)
