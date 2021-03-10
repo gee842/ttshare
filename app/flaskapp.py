@@ -27,7 +27,7 @@ def save_mp3():
 def get_mp3():
     #test if exists then throw error accordingly
     tts_id = request.args.get('tts_id', default=1, type=str)
-    return flask.send_file(f'./saved/{tts_id}.mp3',as_attachment=True)
+    return flask.send_file(f'saved/{tts_id}.mp3',as_attachment=True)
 
     
     
