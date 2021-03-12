@@ -1,5 +1,4 @@
 # $env:GOOGLE_APPLICATION_CREDENTIALS="D:\Downloads\redditvidtts-2242083b8e66.json"
-# todo: set quota of 1m characters per month in text file flag
 #todo: user voice selection, playable embed
 from google.cloud import texttospeech
 import json
@@ -59,5 +58,3 @@ def comment_to_mp3(input_text, FILEPATH_QUOTA,POST_ID,randomize=False,voice='en-
         out.write(response.audio_content)
         print(f'Audio content written to file "{POST_ID}.mp3"')
 
-if __name__ == "__main__":
-    comment_to_mp3("Oh, you made it to the end? You're a ducking beast! Lets make a deal: Hit like and subscribe and I will provide more humanoid content. Goodbye!","./quota.txt",'duck',1,randomize=True)
