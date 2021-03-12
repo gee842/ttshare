@@ -1,16 +1,19 @@
 from flask import Flask
 import flask
+from flask_cors import CORS, cross_origin
 from flask import request
 import base64
 import pickle
 import random
 app = Flask(__name__)
+CORS(app)
 app.config['JSON_SORT_KEYS'] = False
 
 from app.tts import comment_to_mp3
 
 
 @app.route('/save', methods=['GET'])
+@cross_origin()
 def save_mp3():
     try:
         
@@ -24,6 +27,7 @@ def save_mp3():
         return e.message()
     
 @app.route('/mp3s', methods=['GET'])      
+@cross_origin()
 def get_mp3():
     #test if exists then throw error accordingly
     tts_id = request.args.get('tts_id', default=1, type=str)
