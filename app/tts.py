@@ -48,11 +48,6 @@ def comment_to_mp3(input_text, FILEPATH_QUOTA,POST_ID,randomize=False,voice='en-
         print(f"-----QUOTA REMAINING: {quota_remaining}-----")
         f.write(str(quota_remaining))
 
-    filename = input_text[0:8].replace(".","").replace("*","")
-    filename = re.sub('[\W_]+', '', filename) 
-
-
-
     with open(f"./saved/{POST_ID}.mp3", "wb") as out:
         # Write the response to the output file.
         out.write(response.audio_content)
